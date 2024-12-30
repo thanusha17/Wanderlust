@@ -1,0 +1,251 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<style>
+  .filter{
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+    opacity:0.7;
+    text-align: center;
+  }
+  .filter:hover{
+    opacity: 1;
+  }
+  .filter p{
+    font-size: 0.9rem;
+  }
+  #filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+   
+  }
+  .taxToggle{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 2.85rem;
+    width:15rem;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    /* margin-left: 2rem; */
+  }
+
+  /* Base container for filters */
+.filter-container{
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap onto the next line if needed */
+  justify-content: flex-start; /* Align items to the start of the container */
+  gap: 0.5rem;
+}
+ 
+
+/* Individual filter item */
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-bottom: 1rem; Optional space at the bottom of each filter */
+  /* flex: 1 1 150px; Allow items to grow and shrink, with a minimum width of 150px */
+  /* min-width: 150px; Ensure each filter item has a minimum width */
+}
+
+/* Collapse behavior for the filter container on small screens */
+@media (max-width: 767px) {
+  /* Ensure filters wrap on small screens when there's not enough space */
+  .collapse:not(.show) .filter-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+  }
+
+  /* Styling for the toggle button */
+  .btn {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Styling for the toggle switch */
+/* .taxToggle {
+  margin-top: 1rem;
+} */
+
+/* Keep items in a row on larger screens */
+@media (min-width: 768px) {
+  .filter-container {
+    flex-wrap: wrap; /* Allow wrapping on larger screens too */
+  }
+}
+
+/* Style for the "Show Filters" Button */
+.custom-show-filters-btn {
+  margin-top: 1rem;
+  background-color: #ffe3e1; /* Background color */
+  color: #333; /* Dark text color for contrast */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px; /* Padding around the button */
+  font-size: 16px; /* Font size */
+  font-weight: 600; /* Bold text */
+  width: 100%; /* Occupy 80% of the width */
+  display: block; /* Ensure the button takes up the full width of its container */
+   /* Center the button horizontally */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and transform */
+}
+
+/* On hover, change background color */
+.custom-show-filters-btn:hover {
+  background-color: #E5E1DA; /* Updated hover background color */
+  color: #333;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* On focus, add outline */
+.custom-show-filters-btn:focus {
+  outline: 2px solid #E5E1DA; /* Add focus outline using hover color */
+  outline-offset: 2px;
+}
+
+/* Style for the collapse button when pressed (active state) */
+.custom-show-filters-btn:active {
+  background-color: #D1C8B1; /* Slightly darker shade when pressed */
+  transform: scale(0.98); /* Slightly shrink when pressed */
+}
+
+/* Responsiveness: Ensure the button remains appropriately styled on smaller screens */
+@media (max-width: 767px) {
+  .custom-show-filters-btn {
+    font-size: 14px; /* Smaller text size on smaller screens */
+    padding: 8px 15px; /* Adjust padding on smaller screens */
+  }
+}
+
+
+  
+</style>
+
+<body>
+    <!-- <h3  >All Listings</h3> -->
+
+     <div id="filters">
+      <button class="btn btn-primary d-block d-md-none custom-show-filters-btn" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+        Show Filters
+      </button>
+
+      <div id="filterCollapse" class="collapse d-md-block">
+        <div class="filter-container">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-umbrella-beach"></i></div>
+        <p>Beaches</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-regular fa-snowflake"></i></div>
+        <p>Arctic</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-guitar"></i></div>
+        <p>Art</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-igloo"></i></div>
+        <p>Igloos</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-sailboat"></i></div>
+        <p>Boats</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-crown"></i></div>
+        <p>Dynasties</p>
+      </div> 
+      <div class="filter">
+        <div><i class="fa-solid fa-tower-observation"></i></div>
+        <p>Towers</p>
+      </div>
+      <!-- <div class="filter">
+        <div><i class="fa-brands fa-searchengin"></i></div>
+        <p>New</p> 
+     </div> -->
+       </div>
+      <div class="form-check-reverse form-switch taxToggle">
+        <input class="form-check-input tax-toggle" type="checkbox" role="switch" id="flexSwitchCheckDefault">&nbsp; &nbsp;
+        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+      </div>
+    </div>
+      
+    </div>
+
+
+    
+    
+    
+    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2  row-cols-sm-1">
+        <% for(let listing of allListings){ %>
+        <a href="/listings/<%= listing._id %>">
+           <!-- Card component -->
+           <div class="card col listingCard">
+            <img src=<%= listing.image.url %> class="card-img-top" style="height: 20rem;" alt="Listing image">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <b class="bold"><%= listing.title %></b>
+               <p> &#8377; <%= new Intl.NumberFormat('en-IN').format(listing.price) %> /night
+               <i class="tax-info" style="display: none;">&nbsp; &nbsp; +18% GST</i>
+              </p>
+              </p>
+            </div>
+          </div>
+        </a>
+
+            <!-- <li><a href="/listings/<%= listing._id %>"> <%= listing.title %> </a></li> -->
+        <% } %>
+
+    </div>
+   
+</body>
+
+
+<script>
+// Get the toggle switch and all the tax-info elements
+const taxToggle = document.querySelector('.tax-toggle'); // Only one toggle button
+const taxInfos = document.querySelectorAll('.tax-info'); // All tax-info elements across listings
+
+// Listen for the change event on the toggle button
+taxToggle.addEventListener('change', function() {
+  // Loop through each tax-info element and show/hide based on the toggle state
+  taxInfos.forEach(function(taxInfo) {
+    if (taxToggle.checked) {
+      taxInfo.style.display = 'inline'; // or 'block' based on your layout
+    } else {
+      taxInfo.style.display = 'none';
+    }
+  });
+});
+
+</script>
